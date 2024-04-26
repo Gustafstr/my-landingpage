@@ -1,10 +1,10 @@
 import "./App.css";
-import React from "react";
 import "./index.css";
 import groupImage from "./images/Group 210.png";
 import movilImage from "./images/movil.png";
 import AthenaImage from "./images/Athena.png";
 import bookstoreImage from "./images/bookstore.png";
+import React, { useState, useCallback } from "react";
 
 function Header() {
   return (
@@ -53,12 +53,33 @@ function MainContent() {
 }
 
 function SignupForm() {
+  const [email, setEmail] = useState("");
+
+  const handleChange = useCallback((e) => {
+    setEmail(e.target.value.trim());
+  }, []);
+
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+
+      if (email) {
+        fetch(`/api/memberAdd?email=${email}`) // Use the email state directly
+          .then((res) => res.json())
+          .then((res) => console.log(res))
+          .catch((err) => console.log(err));
+      }
+    },
+    [email]
+  );
   return (
-    <form className="email-form">
+    <form className="email-form" onSubmit={handleSubmit}>
       <input
         type="email"
         placeholder="Your Email Address"
         className="email-input"
+        onChange={handleChange}
+        value={email}
       />
       <button type="submit" className="yes-button">
         Yes Please!
