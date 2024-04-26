@@ -1,13 +1,254 @@
-body {
+/* index.css */
+
+body,
+html {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  height: 100%;
+  background-color: #111111; /* Svart bakgrund */
+  color: white; /* Vit text */
+  font-family: "Gill Sans";
+  font-weight: 100;
+  line-height: 24px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.green-text {
+  color: #4ba960;
+}
+
+.subtitle {
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 100px;
+  line-height: 30px;
+  align-items: center;
+  text-align: center;
+}
+
+.bookstore {
+  padding-top: 60px;
+}
+
+.header {
+  display: flex;
+  justify-content: left;
+  text-align: center;
+  padding: 20px 15px; /* Viss padding ovanför och under */
+  padding-bottom: 15px;
+}
+.images-container {
+  display: flex;
+  flex-wrap: nowrap; /* Förhindra omslag */
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0px; /* Utrymme mellan bilderna */
+  padding-top: 10px;
+}
+
+.dator {
+  flex: 1;
+}
+
+.movil {
+  flex: 2;
+}
+
+/* Mediafråga för skärmar som är mindre än 390px */
+@media (max-width: 390px) {
+  .images-container {
+    flex-direction: column;
+  }
+
+  .dator,
+  .movil {
+    max-width: 90%;
+  }
+}
+
+/* Mediafråga för skärmar som är större än eller lika med 390px */
+@media (min-width: 390px) {
+  .images-container {
+    flex-direction: row; /* Elementen ska visas i rad */
+  }
+
+  .dator,
+  .movil {
+    /* Ställ in önskad maxbredd och höjd för bilderna */
+    max-width: 50%; /* Upp till 50% av containerns bredd */
+    height: auto;
+  }
+}
+
+.logo-text {
+  justify-content: center; /* Centrerar horisontellt */
+  align-items: center; /* Centrerar vertikalt */
+  font-size: 30px; /* Större textstorlek för logotypen */
+  font-weight: bold; /* Fetstil för logotypen */
+  padding: 10px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Centrerar texten */
+  margin: auto; /* Centrerar vertikalt och horisontellt i förälder */
+  padding: 20px;
+  padding-top: 10px;
+}
+
+.main h2 {
+  font-size: 48px; /* Anpassad textstorlek för rubrikerna */
+  margin-top: 20px; /* Avstånd mellan elementen */
+  line-height: 50px;
+  padding-bottom: 0px;
+}
+
+.main p {
+  max-width: 600px; /* Maximal bredd på paragrafer */
+  text-align: center; /* Centrerad text */
+  color: #a6a6a6;
+  text-size-adjust: 14;
+}
+
+.main h5 {
+  font-size: 20px;
+  font-weight: 200;
+  padding-bottom: 0px;
+}
+.transparent-button {
+  padding: 10px 30px; /* Ökad horisontell padding för en bredare knapp */
+  min-width: 150px; /* Minsta bredd på knappen */
+  border: 1px solid white; /* Vit kantlinje */
+  background-color: transparent; /* Genomskinlig bakgrund */
+  color: white; /* Vit text */
+  font-size: 1rem;
+  border-radius: 20px; /* Runda hörn med 20px radie */
+  cursor: pointer;
+  outline: none; /* Ta bort fokus-utseendet som webbläsare lägger till */
+  display: inline-block; /* Se till att min-width och padding tillämpas */
+  text-align: center; /* Centrera texten inuti knappen */
+}
+
+.transparent-button:hover {
+  background-color: white; /* Vit bakgrund vid hovring */
+  color: black; /* Behåll svart text vid hovring */
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #4f5385; /* Grön bakgrund */
+  color: white; /* Vit text på knapparna */
+  border-radius: 100px; /* Rundade hörn */
+  cursor: pointer; /* Muspekaren som hand när den hovrar över knappen */
+}
+
+button:hover {
+  background-color: #45a049; /* Mörkare grön för hover-effekt */
+}
+
+.email-form {
+  display: flex;
+  justify-content: space-between; /* Separerar input och knapp */
+  gap: 10px; /* Utrymme mellan input och knapp */
+  max-width: 500px; /* Maxbredd på formuläret */
+  width: 100%; /* Anpassa till föräldrabredd */
+  margin-top: 0px;
+}
+
+.email-input {
+  flex-grow: 1; /* Inputfältet tar upp extra utrymme */
+  border-radius: 100px; /* Runda hörnen på inputfältet */
+  padding: 10px;
+  font-size: 14;
+}
+
+.yes-button {
+  border-radius: 100px; /* Runda hörnen på knappen */
+  background-color: #006039; /* Genomskinlig bakgrund */
+  color: white; /* Vit text */
+  padding: 10px 20px; /* Viss padding i knappen */
+  font-size: 14;
+}
+
+.yes-button:hover {
+  background-color: #4ba960; /* Vit bakgrund vid hovring */
+  color: white; /* Svart text vid hovring */
+}
+
+/* Footer CSS */
+.footer {
+  background-color: #222222;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Ensure the container takes full width */
+}
+
+.footer-section.contact {
+  flex: 1; /* Allow this section to grow */
+  margin-right: 10px; /* Add some space between the sections */
+}
+
+.footer-section.find-us {
+  flex: 1; /* Give this section twice as much room as the 'contact' section */
+  align-self: flex-start; /* Align to the top, matching 'contact' alignment */
+}
+
+.footer-section h3 {
+  color: #4ba960;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  padding-left: 2px;
+  padding-bottom: 20px;
+  margin: 0;
+}
+
+.footer-section ul li {
+  color: #ffffff;
+}
+
+.footer-branding {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer a {
+  color: #4ba960;
+  text-decoration: none;
+}
+
+.footer-logo {
+  max-width: 200px;
+  margin-bottom: 0px;
+}
+
+@media (max-width: 389px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    width: 100%;
+  }
+
+  .footer-section.contact,
+  .footer-section.find-us {
+    flex: none; /* Do not allow the sections to grow on smaller screens */
+  }
 }
